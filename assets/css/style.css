@@ -18,7 +18,6 @@ body {
 }
 
 img {
-
     width: 100%;
 }
 
@@ -102,6 +101,7 @@ span {
 }
 
 
+
 .container h1 {
     text-align: center;
     font-size: 32px;
@@ -109,6 +109,9 @@ span {
     padding: 30px 0 25px;
     margin-bottom: 10px;
     letter-spacing: -0.12px;
+    background-image: linear-gradient(to right, #140dba, #1f15c3, #271dcb, #2f23d4, #362add, #4a2ce1, #5b2fe6, #6a32ea, #8232eb, #9733eb, #aa35eb, #bb37eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .search {
@@ -126,9 +129,21 @@ span {
     margin: 0 20px;
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill ,minmax(200px, 1fr));
   
 }
+
+
+
+.overlayer, .svg-download, .coracao-svg {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 .search-bar input {
     padding: 20px 12px;
     outline: none;
@@ -143,6 +158,7 @@ span {
 
 
 
+
 input:focus {
     background-color: white;
     border: 1px solid #7f7f7f;
@@ -153,7 +169,7 @@ button {
     padding: 0 20px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-    background-color: #000000;
+    background-image: linear-gradient(to right, #140dba, #1f15c3, #271dcb, #2f23d4, #362add, #4a2ce1, #5b2fe6, #6a32ea, #8232eb, #9733eb, #aa35eb, #bb37eb);
     cursor: pointer;
     transition: all 500ms;
 
@@ -174,7 +190,7 @@ button:hover {
 
 
 img {
-    border-radius: 25px;
+    border-radius: 10px;
 }
 
 
@@ -207,14 +223,39 @@ img {
     color:#7f7f7f;
 }
 
+footer {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-@media (min-width: 769px) {
+.footer {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+
+.copy-right {
+    font-size: 16px;
+   color: #7f7f7f;
+}
+
+
+
+
+
+@media (min-width: 800px) {
+
+    .overlayer, .svg-download, .coracao-svg  {
+        display: block;
+    }
 
     img{
         height: 100%;
         object-fit: cover;
         object-position: center;
-        
     }
 
     .search {
@@ -267,10 +308,10 @@ img {
      
    
     .container {
-        padding: 10px;
+        padding: 20px;
         margin: 0 auto;
         max-width: 700px;
-        height: 320px;
+        height: 350px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -278,10 +319,12 @@ img {
     }
 
     .container h1 {
+    
+        text-align: center;
         margin-top: 20px;
-        font-size: 42px;
+        font-size: 38px;
         line-height: 1.2;
-        letter-spacing: -0.12px;
+        letter-spacing: -0.10px;
     }
 
     .search-bar input{
@@ -293,59 +336,92 @@ img {
         max-width: 900px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(4,minmax(200px,1fr));
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
         gap: 20px;
       
     }
 
-    .item:nth-of-type(4) {
-        grid-row: 2 / 4;
-    } 
+
+   .item {
+    position: relative;
+   }
 
     
    
-    .item1 {
+    .item:nth-of-type(1) {
         grid-column: 1 / 3;
        
     }
 
-    .item6 {
+    .item:nth-of-type(6) {
         grid-column: 3 / 5;
        
     }
 
-    .item10 {
+    .item:nth-of-type(10) {
         grid-column: 2 / 5;
        
     }
 
-    .item11 {
+    .item:nth-of-type(11) {
         grid-column: 2 / 5;
        
     }
 
 
     
-    .item2 {
+    .item:nth-of-type(2){
         grid-row: 2/ 4;
        
     }
 
-    .item4 {
+    .item:nth-of-type(4) {
         grid-row: 2/ 4;
        
+    }
+  
+    .item:hover .overlayer::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        background-color: transparent;
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .svg-download {
+        position: absolute;
+        cursor: pointer;
+        top: 20px;
+        left: 20px;
+        margin: 10px;
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+        opacity: 0; 
+       
+    }
+
+    
+
+    
+    .item:hover .svg-download {
+        opacity: 1; 
+    }
+
+   .item:hover .coracao-svg {
+        opacity: 1;
     }
 
    
+    
+
+
 
     
     
-    
-    .flooter-desk {
-       display: flex;
-       flex-direction: row;
-       justify-content: space-around;
-       align-items: center;
-       height: 70px;
-    }
+
+
 }
